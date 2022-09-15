@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>  	
+		<meta charset="ISO-8859-1" />
+		<title>Dettagli Certificazione</title>
+		<link rel="stylesheet" th:href="@{/css/my-style.css}"/>
+		<link rel="stylesheet" th:href="@{/css/descrizioni.css}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">  
+	</head> 
+
+	<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<div id="sfondo-certificazione"></div>
+		<div id="section">
+			<div class="section-item">
+					<div><strong>Nome: </strong>
+					<span th:text="${certificazione.nome}">Certificazione</span></div>
+					<div><strong>Descrizione: </strong>
+					<span th:text="${certificazione.descrizione}">Descrizione</span></div>
+			</div>
+			
+			<div class="section-item" th:if="${certificazione.esami !=null}">
+				<div>Esame nella certificazione:</div>
+				<ul>
+					<li>
+						<a href="esame.html" th:href="@{'/esame' + '/' + ${certificazione.esami.id}}"
+						   th:text="${certificazione.esami.nome}">Esame</a>
+					</li>	   	
+				</ul>
+			</div>
+			
+			<div>
+				<form id="registra" method="POST" th:action="@{'/registraCertificazione/' + ${certificazione.id}}">
+					<button type="submit">Registra</button>
+				</form>
+			</div>
+			
+		</div>
+	</body>
+
+</html>

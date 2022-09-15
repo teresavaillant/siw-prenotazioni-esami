@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>  	
+	<meta charset="ISO-8859-1" />
+		<title>Rimuovi Certificazione</title>
+		<link rel="stylesheet" th:href="@{/css/my-style.css}"/>
+		<link rel="stylesheet" th:href="@{/css/elenchi.css}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
+
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>	
+	<div id="container">
+		<div id="section">
+			<div>
+				<div>
+					<h3>Sei sicuro di voler eliminare la certificazione <span th:text="${certificazione.nome}">Certificazione</span>?</h3>
+					<div>Descrizione: <span  th:text="${certificazione.descrizione}">Descrizione</span></div>
+				</div>	
+				<div class="section-item" th:if="${certificazione.esami !=null}"><strong> Esami presenti nel pacchetto:</strong>
+					<ul>
+						<li th:each="esame: ${certificazione.esami}">
+							<a href="esame.html" th:href="@{'/esame' + '/' + ${esame.id}}"
+							   th:text="${esame.nome}">Esame</a>
+						</li>	   	
+					</ul>
+				</div>
+				<div>
+					<a class="section-item" id="button" th:href="@{'/admin' + '/confermaRemoveCertificazione' + '/' + ${certificazione.id}}">Conferma</a>
+				</div>
+			</div>
+			<img src="/images/certificazione.jpg"></img>
+		</div>
+	</div>
+
+</body>
+
+</html>

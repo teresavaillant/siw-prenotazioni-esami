@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>  	
+		<meta charset="ISO-8859-1" />
+		<title>Dettagli Allievo</title>
+		<link rel="stylesheet" th:href="@{/css/my-style.css}"/>
+		<link rel="stylesheet" th:href="@{/css/descrizioni.css}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head> 
+
+	<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<div id="sfondo-allievo"></div>
+		<div id="section">
+			<div class="section-item">
+				<div><strong>Nome: </strong>
+				<span th:text="${allievo.nome}">Paolo</span></div>
+				<div><strong>Cognome: </strong>
+				<span  th:text="${allievo.cognome}">Rossi</span></div>
+				<!--div><strong>Nazionalita': </strong>
+				<span  th:text="${allievo.nazionalita}">Italiano</span></div>
+				<div><strong>Matricola: </strong>
+				<span  th:text="${allievo.matricola}">546845</span></div-->
+			</div>
+			<div class="section-item" id="button">
+				<p><a th:href="@{'/allievo' + '/' + ${allievo.id} + '/' + 
+						'certificazioni'}" href="#">Guarda le sue certificazioni</a>
+				</p>
+			</div>
+		</div>		
+	</body>
+
+</html>

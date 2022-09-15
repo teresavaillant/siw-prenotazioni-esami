@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>Inserisci Esame</title>
+		<link rel="stylesheet" th:href="@{/css/form.css}"/>
+		<link rel="stylesheet" th:href="@{/css/my-style.css}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	
+	<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<div th:replace="fragments/base.html :: biblioteca"></div>
+		
+		<div id="text">
+			<form id="form" th:action="@{/admin/esame}" method="POST" th:object="${esame}">
+				<div><h3>Inserisci un nuovo Esame</h3></div>
+				<div th:if="${#fields.hasGlobalErrors()}">
+				    <p th:each="err : ${#fields.hasGlobalErrors()}" th:text="${err}">...</p> 
+				</div>
+				<div class="form-item">
+					<div>Nome: </div>
+					<div><input type="text" th:field="*{nome}" required/></div>
+					<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+				</div>
+				
+				<div class="form-item">
+					<div>Descrizione: </div>
+					<div><input type="text" th:field="*{descrizione}" required/></div>
+					<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>	
+				</div>
+				
+				<div class="form-item">
+					<div>Professore: </div>
+					<div><input type="text" th:field="*{professore}" required/></div>
+					<div th:if="${#fields.hasErrors('professore')}" th:errors="*{professore}"></div>	
+				</div>
+				
+				<div class="form-item">
+					<div>Cfu: </div>
+					<div><input type="text" th:field="*{cfu}" required/></div>
+					<div th:if="${#fields.hasErrors('cfu')}" th:errors="*{cfu}"></div>	
+				</div>
+				
+				<div class="form-item">
+					<div>Data: </div>
+					<div><input type="text" th:field="*{data}" placeholder="dd/MM/yyyy" required/></div>
+					<div th:if="${#fields.hasErrors('data')}" th:errors="*{data}"></div>	
+				</div>
+				<div class="button">
+					<button type="submit">Conferma</button>
+				</div>
+			</form>
+		</div>
+	</body>
+
+</html>

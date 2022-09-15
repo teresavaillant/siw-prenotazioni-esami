@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" name="viewport"
+	content="width=device-width, initial-scale=1">
+<title>Certificazioni</title>
+<link rel="stylesheet" th:href="@{/css/elenchi.css}" />
+<link rel="stylesheet" th:href="@{/css/my-style.css}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+
+	<div id="container">
+		<div th:if="${allievo == null}">
+			<h1>Le nostre Certificazioni</h1>
+		</div>
+		<div id="section">
+			<ul id="elenco">
+				<li th:each="certificazione : ${certificazioni}"><a href="#"
+					th:href="@{'/certificazione' + '/' + ${certificazione.id}}"
+					th:text="${certificazione.nome}">Certificazione</a></li>
+			</ul>
+		</div>
+		<img src="/images/certificazione.jpg"></img>
+	</div>
+</body>
+</html>

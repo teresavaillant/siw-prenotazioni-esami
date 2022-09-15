@@ -1,0 +1,32 @@
+<!--  DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>  	
+		<meta charset="ISO-8859-1" />
+		<title>Allievo</title>
+		<link rel="stylesheet" th:href="@{/css/elenchi.css}"/>
+		<link rel="stylesheet" th:href="@{/css/my-style.css}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	</head> 
+
+	<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>	
+		
+		<div id="container">
+			<div><h1>Seleziona uno dei seguenti Allievi</h1></div>
+			<div id="section">
+				<ul id="elenco">
+					<li th:each="allievo: ${allievi}">
+						<span>
+							<a href="allievo.html" th:href="@{'/allievo' + '/' + ${allievo.id}}"
+					   		th:text="${allievo.nome} + ' ' + ${allievo.cognome}">Paolo Rossi</a>
+					   		<a th:href="@{'/admin' + '/allievo' + '/' + ${allievo.id} + '/newCertificazione'}"><span id="select">Seleziona</span></a>
+					   	</span>
+					</li>	   	
+				</ul>
+				<img src="/images/allievoStilizzato.jpg"></img>
+			</div>
+		</div>
+	</body>
+
+</html-->

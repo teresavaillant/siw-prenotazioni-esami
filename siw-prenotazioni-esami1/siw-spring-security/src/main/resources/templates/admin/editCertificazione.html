@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>  	
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+		<title>Modifica Certificazione</title>
+		<link rel="stylesheet" th:href="@{/css/my-style.css}"/>
+		<link rel="stylesheet" th:href="@{/css/elenchi.css}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
+
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>	
+	<div id="container">
+		<div id="section">
+			<div>
+				<div>
+					<h1 th:text="${certificazione.nome}">Certificazione</h1>
+					<div>Descrizione: <span  th:text="${certificazione.descrizione}">Descrizione</span>
+					</div>
+				</div>	
+				<div class="section-item" th:if="${certificazione.esami !=null}"><strong>Esami nella certificazione:</strong>
+					<ul>
+						<li th:each="esame: ${certificazione.esami}">
+							<a href="esame.html" th:href="@{'/esame' + '/' + ${esame.id}}"
+							   th:text="${esame.nome}">Esame</a>
+							 <a th:href="@{'/admin' + '/certificazione' + '/' + ${certificazione.id} + 
+								'/removeEsame' +'/' + ${esame.id}}"><span id="select">Rimuovi</span></a>
+						</li>	   	
+					</ul>
+				</div>
+				<div class="section-item"><strong>Vuoi aggiugere esami alla certificazione?</strong>
+					<ul>
+						<li th:each="esame: ${esami}">
+							<a href="esame.html" th:href="@{'/esame' + '/' + ${esame.id}}"
+							   th:text="${esame.nome}">Esame</a>
+							<a href="#" th:href="@{'/admin' + '/certificazione' + '/' + ${certificazione.id} + '/' + ${esame.id}}">
+							<span id="select">Aggiungi alla certificazione</span></a>
+						</li>	   	
+					</ul>
+				</div>
+					<div>
+					<a class="section-item" id="button" href="certificazione.html" th:href="@{'/certificazione' + '/' + ${certificazione.id}}">Conferma</a>
+				</div>
+			</div>
+			<img src="/images/allievo.jpg"></img>
+		</div>
+	</div>
+
+</body>
+
+</html>

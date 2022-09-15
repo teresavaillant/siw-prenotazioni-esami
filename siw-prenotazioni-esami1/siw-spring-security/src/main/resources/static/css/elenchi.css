@@ -1,0 +1,58 @@
+#container {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 200px;
+	background-color: #ff8040;
+	opacity: 0.8;
+	border-radius: 7px;
+	padding: 50px;
+}
+
+#section {
+	margin: 150px;
+	display: flex;
+	
+	
+}
+
+img {
+	width: 150%;
+	position: relative;
+	border-radius: 7px;
+}
+
+#elenco {
+	font-size: 50px;
+	justify-content: space-around;
+}
+
+#select {
+	font-size: smaller;
+	color: #ad043d;
+}
+
+#select:hover {
+	color: black;
+	font-weight: bold;
+}
+
+.section-item {
+	margin: 20px 0;
+}
+
+#button {
+	position: relative;
+	font-size: 18px;
+	padding: 3px;
+	border-style: solid;
+	color: white;
+	background-color: #ad043d;
+	border-radius: 3px;
+	margin: 10px 0;
+}
+
+#button:hover {
+	color: #ad043d;
+	background-color: white;
+}

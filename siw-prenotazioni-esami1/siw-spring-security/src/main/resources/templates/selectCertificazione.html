@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>  	
+		<meta charset="ISO-8859-1" />
+		<title>Certificazione</title>
+		<link rel="stylesheet" th:href="@{/css/elenchi.css}"/>
+		<link rel="stylesheet" th:href="@{/css/my-style.css}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">   
+	</head> 
+
+	<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>	
+		
+		<div id="container">
+			<div><h1>Seleziona una certificazione a cui vuoi iscriverti</h1></div>
+			<div id="section">
+				<ul id="elenco">
+					<li th:each="certificazione: ${certificazioni}">
+						<span>
+							<a href="certificazione.html" th:href="@{'/certificazione' + '/' + ${certificazione.id}}"
+					   		th:text="${certificazione.nome}">Certificazione 1</a>
+					   		<a th:href="@{'/iscrizioneEsameToCertificazione' + '/' + ${certificazione.id}}"><span id="select">iscriviti</span></a>
+					   	</span>
+					</li>	   	
+				</ul>
+				<img src="/images/biblioteca.jpg"></img>
+			</div>
+		</div>
+	</body>
+
+</html>
